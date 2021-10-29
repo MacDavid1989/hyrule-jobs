@@ -4,9 +4,13 @@ import { defineComponent, ref } from "vue";
 // types
 import { Job } from "./types/Jobs";
 
+// components
+import JobList from "./components/JobList.vue";
+
 export default defineComponent({
   name: "App",
   setup() {
+    // jobs
     const jobs = ref<Job[]>([
       {
         title: "farm worker",
@@ -47,7 +51,7 @@ export default defineComponent({
 
 <template>
   <div class="app">
-    <p v-for="job in jobs" :key="job.id">{{ job.title }}</p>
+    <JobList :jobs="jobs" />
   </div>
 </template>
 
