@@ -9,6 +9,9 @@ import JobList from "./components/JobList.vue";
 
 export default defineComponent({
   name: "App",
+  components: {
+    JobList,
+  },
   setup() {
     // jobs
     const jobs = ref<Job[]>([
