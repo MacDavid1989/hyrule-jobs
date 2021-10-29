@@ -1,35 +1,53 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
+// types
+import { Job } from "./types/Jobs";
+
 export default defineComponent({
   name: "App",
   setup() {
-    // name
-    const name = ref<string>("Link");
-    const changeName = (newName: string): void => {
-      name.value = newName;
-    };
+    const jobs = ref<Job[]>([
+      {
+        title: "farm worker",
+        location: "lon lon ranch",
+        salary: 30000,
+        id: "1",
+      },
+      {
+        title: "quarryman",
+        location: "death mountain",
+        salary: 40000,
+        id: "2",
+      },
+      {
+        title: "flute player",
+        location: "the lost woods",
+        salary: 35000,
+        id: "3",
+      },
+      {
+        title: "fisherman",
+        location: "lake hylia",
+        salary: 21000,
+        id: "4",
+      },
+      {
+        title: "prison guard",
+        location: "gerudo valley",
+        salary: 32000,
+        id: "5",
+      },
+    ]);
 
-    // age
-    const age = ref<number | string>(25);
-    const changeAge = (newAge: number | string): void => {
-      age.value = newAge;
-    };
-
-    return { name, changeName, age, changeAge };
+    return { jobs };
   },
 });
 </script>
 
 <template>
   <div class="app">
-    <p>
-      {{ name }}
-      -
-      {{ age }}
-    </p>
-    <button @click="changeName('Zelda')">Change Name</button>
-    <button @click="changeAge(30)">Change Name</button>
+    <p v-for="job in jobs" :key="job.id">{{ job.title }}</p>
   </div>
 </template>
 
