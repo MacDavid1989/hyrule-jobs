@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&dispplay=swap");
 
+@font-face {
+  font-family: HyliaSerif;
+  src: url("HyliaSerifBeta-Regular.otf") format("opentype");
+}
+
 body {
   font-family: "Open Sans";
   background: #ece6d9;
@@ -22,4 +27,9 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+}
+
+h1 {
+  font-family: HyliaSerif;
+  letter-spacing: 4px;
 }
