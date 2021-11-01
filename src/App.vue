@@ -62,6 +62,10 @@ export default defineComponent({
 <template>
   <div class="app">
     <header>
+      <div class="title">
+        <img src="./assets/icons/heart.svg" alt="site-logo" />
+        <h1>Hyrule Jobs</h1>
+      </div>
       <div class="order">
         <button @click="handleClick('title')">Order by Title</button>
         <button @click="handleClick('salary')">Order by Salary</button>
