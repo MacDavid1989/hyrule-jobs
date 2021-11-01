@@ -3,6 +3,7 @@ import { defineComponent, ref } from "vue";
 
 // types
 import { Job } from "./types/Jobs";
+import { OrderTerm } from "./types/OrderTerm";
 
 // components
 import JobList from "./components/JobList.vue";
@@ -47,14 +48,23 @@ export default defineComponent({
       },
     ]);
 
-    return { jobs };
+    const order = ref<OrderTerm>("title");
+
+    const handleClick = (term: OrderTerm) => {
+      order.value = term;
+    };
+
+    return { jobs, order, handleClick };
   },
 });
 </script>
 
 <template>
   <div class="app">
-    <JobList :jobs="jobs" />
+    <button @click="handleClick('title')">Order by Title</button>
+    <button @click="handleClick('salary')">Order by Salary</button>
+    <button @click="handleClick('location')">Order by Location</button>
+    <JobList :jobs="jobs" :order="order" />
   </div>
 </template>
 
